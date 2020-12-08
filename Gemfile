@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 gem 'jekyll', '~> 3.0.1'
-gem 'haml', '~> 4.0.6'
+gem 'haml', '~> 5.0.0'
 gem 'jekyll-feed', '~> 0.2.3'
 gem 'jekyll-sitemap', '~> 0.9.0'
 gem 'jekyll-redirect-from', '~> 0.9.0'
