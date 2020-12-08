@@ -1,0 +1,92 @@
+---
+---
+<!DOCTYPE html>
+<html>
+<head>
+<base href="{{ site.baseurl }}" />
+<title>{% if page.title %}{{page.title}} - {% endif %}Christopher Manning</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="Description" content="{{ site.description }}">
+{% if page.thumbnail %}
+  <meta name="thumbnail" content="{{ site.baseurl }}{{page.thumbnail}}" />
+  <meta name="img_src" content="{{ site.baseurl }}{{page.thumbnail}}" />
+  <meta property="og:image" content="{{ site.baseurl }}{{ page.thumbnail }}" />
+{% endif %}
+{% if page.title %}
+	<meta property="og:type" content="article" />
+	<meta property="og:title" content="{{ page.title }}" />
+{% else %}
+	<meta property="og:type" content="website" />	
+{% endif %}
+{% if page.url != '/index.html' %}
+	<meta property="og:url" content="{{ site.baseurl }}{{ page.url }}/" />
+{% endif %}
+{% if site.name %}
+	<meta property="og:site_name" content="{{ site.name }}" />
+{% endif %}
+{% if page.date %}
+	<meta property="article:published_time" content="{{ page.date | date_to_xmlschema }}" />
+{% endif %}
+<link rel="alternate" type="application/rss+xml" title="{{ site.name }}" href="{{ site.baseurl }}/feed.xml">
+<!-- Bootstrap -->
+<link href="/css/cosmo/bootstrap.min.css" rel="stylesheet" media="screen">
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/lazysizes/1.3.1/lazysizes.min.js"></script>
+<!-- Latest compiled and minified JavaScript -->
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+<link rel="shortcut icon" href="{{ site.baseurl }}/favicon.ico?v=2">
+</head>
+<body>
+<div class="navbar-default">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="{{ site.baseurl }}">Christopher Manning</a>
+    </div>
+    <div class="navbar-collapse collapse navbar-responsive-collapse">
+      <ul class="nav navbar-nav">
+        {% assign url = page.url|remove:'/index.html' %}
+        {% for link in site.navigation %}
+          {% if link.leaf %}
+            {% assign sublinks = link.leaf | map:'url' %}
+            <li class="dropdown {% if sublinks contains url %}active{% endif %}">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{link.text}} <b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                {% for sublink in link.leaf %}
+                  <li {% if url contains sublink.url %}class="active"{% endif %}>
+                    <a href="{{sublink.url}}" title="{{sublink.title}}">{{sublink.text}}</a>
+                  </li>
+                {% endfor %}
+              </ul>
+            </li>
+          {% else %}
+            <li {% if url contains link.url %}class="active"{% endif %}>
+              <a href="{{link.url}}" title="{{link.title}}">{{link.text}}</a>
+            </li>
+          {% endif %}
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+</div>
+<div class="container">
+  {{ content }}
+  <div class="clearfix">&nbsp;</div>
+  <footer style="margin: 5em 0;">
+    <div class="row">
+      <div>
+        <ul class="list-unstyled">
+          <li class="pull-right"><a href="#top">Back to top</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+</div>
+</body>
+</html>

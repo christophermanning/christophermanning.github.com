@@ -1,0 +1,21 @@
+---
+layout: page
+---
+<h1 class="category">{{ page.title }}</h1>
+
+{{content}}
+
+{% for post in site.categories[page.category] %}
+  {% unless post.archived %}
+  <h2><a href="{{ post.url }}">{{ post.title }}</a></h2>
+  {% if post.thumbnail %}
+    <p><a href="{{ post.url }}" class="thumbnail"><img src="{{post.thumbnail}}"></a></p>
+  {% else %}
+    <p>{{ post.excerpt }}</p>
+    {% if post.content contains site.excerpt_separator %}
+      <small><a class="btn btn-primary btn-xs" href="{{ post.url }}">read more &raquo;</a></small>
+    {% endif %}
+  {% endif %}
+  <div class="clearfix"></div>
+  {% endunless %}
+{% endfor %}

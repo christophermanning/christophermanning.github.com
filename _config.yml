@@ -1,0 +1,16 @@
+name: Christopher Manning
+description: Christopher Manning lives in Chicago, Illinois where he works as a software engineer.
+excerpt_separator: "<!--more-->"
+permalink: /:categories/:title
+source: src
+gems:
+  - jekyll-feed
+  - jekyll-sitemap
+  - jekyll-redirect-from
+navigation:
+ - text: About
+   url: /about
+ - text: Projects
+   url: /projects
+ - text: Writing
+   url: /writing

@@ -1,0 +1,30 @@
+---
+layout: page
+---
+<style>
+  .col-md-4 h4 {
+    overflow:hidden;
+    white-space:nowrap;
+    text-overflow:ellipsis;
+    display: block;
+  }
+</style>
+
+<h1 class="category">{{ page.title }}</h1>
+
+{{content}}
+
+{% for post in site.categories[page.category] %}
+  {% unless post.archived %}
+    {% cycle '<div class="row">', '', '' %}
+    <div class="col-md-4">
+      <h4><a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a></h4>
+      {% if post.thumbnail %}
+        <p><a href="{{ post.url }}" class="thumbnail"><img src="{{post.thumbnail}}"></a></p>
+      {% else %}
+        <p>{{ post.excerpt }}</p>
+      {% endif %}
+    </div>
+    {% cycle '', '', '</div>' %}
+  {% endunless %}
+{% endfor %}

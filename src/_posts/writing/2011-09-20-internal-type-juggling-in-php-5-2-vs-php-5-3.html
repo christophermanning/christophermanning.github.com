@@ -1,0 +1,58 @@
+---
+layout: post
+title: Internal Type Juggling in PHP 5.2 vs PHP 5.3
+categories:
+- writing
+tags:
+- php
+status: publish
+type: post
+published: true
+---
+<p>
+There is an undocumented case where the output of an internal function is different in PHP 5.2 vs PHP 5.3 when you pass it an invalid argument.
+
+<!--more-->
+
+<p>
+For example, strlen returns different values and warnings/notices when attempting to pass it an array.
+
+<h4>PHP 5.2</h4>
+{% highlight php %}
+> var_dump(strlen(array()));
+PHP Notice:  Array to string conversion in php  shell code on line 1
+
+Notice: Array to string conversion in php  shell code on line 1
+int(5)
+{% endhighlight %}
+<h4>PHP 5.3</h4>
+{% highlight php %}
+> var_dump(strlen(array()));
+PHP Warning:  strlen() expects parameter 1 to be string, array given in php  shell code on line 1
+PHP Stack trace:
+PHP   1. {main}() php shell code:0
+PHP   2. strlen() php shell code:1
+
+Warning: strlen() expects parameter 1 to be string, array given in php  shell code on line 1
+
+Call Stack:
+  467.9296     320928   1. {main}() php  shell code:0
+  467.9296     321072   2. strlen() php  shell code:1
+
+NULL
+{% endhighlight %}
+<p>
+The E_WARNING and return value of NULL in PHP 5.3 is preferred, but I still wanted to know why PHP 5.2 was returning int(5). 
+I tracked down the reason to <a rel="external" href="http://svn.php.net/viewvc?view=revision&revision=261338">this subversion commit</a> and <a rel="external" href="http://svn.php.net/viewvc/php/php-src/branches/PHP_5_3/Zend/zend_builtin_functions.c?r1=261338&r2=261337&pathrev=261338">this patch</a>.
+
+<p>
+<script src="https://gist.github.com/christophermanning/1234032.js?file=PHP%205.3%20strlen.patch"></script>
+
+<p>
+In the above patch, I see that strlen and other functions(method_exists, property_exists, function_exists, strcmp, strncmp, strcasecmp, strncasecmp, defined, is_a_impl) were not using zend_parse_parameters to get the arguments. 
+This was preventing the standard validations and warnings from running for that function. Also, those functions were incorrectly casting the arguments to string with convert_to_string_ex. 
+That is why, in PHP 5.2, strlen() of array() is int(5); because, <a rel="external" href="http://www.php.net/manual/en/language.types.string.php#language.types.string.casting">casting array() to string returns "Array"</a>.
+
+<p>
+Now, in PHP 5.3, those functions will no longer coerce the arguments to strings, will return NULL, and will issue a warning when invalid arguments have been provided. Thanks <a href="http://php100.wordpress.com/" rel="external">stas</a>.
+

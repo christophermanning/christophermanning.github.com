@@ -1,0 +1,22 @@
+---
+layout: post
+title: Make Flickr shapes JSON parsable
+categories:
+- writing
+tags:
+- python
+status: publish
+type: post
+published: true
+---
+<p>
+<strong>Update</strong>: Flickr has released <a href="http://code.flickr.net/2012/10/24/2273/">version 2.0.1</a> so this is no longer necessary. Thanks Flickr :D
+<!--more-->
+<hr>
+
+<p>
+The Flickr shapes available at <a href="http://code.flickr.com/blog/2011/01/08/flickr-shapefiles-public-dataset-2-0/" rel="external">http://code.flickr.com/blog/2011/01/08/flickr-shapefiles-public-dataset-2-0/</a> are not parsable with <code>JSON.parse()</code> because of a trailing comma before a closing curly brace. I was able to narrow the problem down to those trailing commas using the <a href="http://json.parser.online.fr/" rel="external">Json Parser Online</a> tool. Then, I used <a href="http://regexpal.com/" rel="external">RegexPal</a> to create the <code>,(\s+})</code> regular expression to fix the syntax error.
+
+<p>
+I've created a python script that will will download the Flickr shapes archive (if it doesn't already exist in the working directory) and update the files to be JSON parsable. Now, those GeoJSON files can be read by libraries like <a href="http://polymaps.org" rel="external">Polymaps</a>.
+<script src="https://gist.github.com/christophermanning/1334341.js?file=make_flickr_shapes_json_parsable.py"></script>
