@@ -3,7 +3,7 @@ layout: page
 projects:
 - /projects/building-cubic-hamiltonian-graphs-from-lcf-notation
 - /projects/voronoi-diagram-with-force-directed-nodes-and-delaunay-links
-- /projects/unknown-pleasures
+- /projects/kaprekar-routine
 ---
 .row
   .col-md-8
@@ -17,10 +17,10 @@ projects:
       {% endfor %}
     %div
       %h4
-        %a{:href => "{{ post.url }}", :title => "{{ post.title }}"} {{ post.title }}
+        %a{:href => "{{ post.url }}", :title => "{{ post.title }}", :target => "_blank"} {{ post.title }}
       {% if forloop.index == 1 %}
       %p
-        %a.thumbnail{:href => "{{ post.url }}"}
+        %a.thumbnail{:href => "{{ post.url }}", :target => "_blank"}
           %img{:src => "{{post.thumbnail_gif}}"}/
       {% endif %}
     {% endfor %}
