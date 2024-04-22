@@ -1,4 +1,5 @@
 _drafts/
 _site/
+_build/
 .vagrant/
 src/.jekyll-metadata
