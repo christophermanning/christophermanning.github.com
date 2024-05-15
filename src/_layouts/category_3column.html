@@ -22,9 +22,13 @@ layout: page
       {% if post.url contains 'https' %}
         {% assign targetBlank = 'target="_blank"' %}
       {% endif%}
-      <h4><a href="{{ post.url }}" title="{{ post.title }}" {{targetBlank}}>{{ post.title }}</a></h4>
+      {% assign postUrl = post.url %}
+      {% if post.redirect_to contains 'https' %}
+        {% assign postUrl = post.redirect_to %}
+      {% endif%}
+      <h4><a href="{{ postUrl }}" title="{{ post.title }}" {{targetBlank}}>{{ post.title }}</a></h4>
       {% if post.thumbnail %}
-        <p><a href="{{ post.url }}" class="thumbnail" {{targetBlank}}><img src="{{post.thumbnail}}"></a></p>
+        <p><a href="{{ postUrl }}" class="thumbnail" {{targetBlank}}><img src="{{post.thumbnail}}"></a></p>
       {% else %}
         <p>{{ post.excerpt }}</p>
       {% endif %}
