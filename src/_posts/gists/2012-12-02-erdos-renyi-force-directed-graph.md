@@ -1,4 +1,5 @@
 ---
+published: false
 layout: post
 title: Erdős–Rényi Force Directed Graph
 category: projects

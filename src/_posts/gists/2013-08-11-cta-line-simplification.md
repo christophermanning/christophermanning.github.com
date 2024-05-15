@@ -1,4 +1,5 @@
 ---
+published: false
 layout: post
 title: CTA Line Simplification
 category: projects

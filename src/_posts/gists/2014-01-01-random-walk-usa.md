@@ -1,4 +1,5 @@
 ---
+published: false
 layout: post
 title: Random Walk USA
 category: projects
