@@ -29,15 +29,16 @@
 	<meta property="article:published_time" content="{{ page.date | date_to_xmlschema }}" />
 {% endif %}
 <link rel="alternate" type="application/rss+xml" title="{{ site.name }}" href="{{ site.baseurl }}/feed.xml">
-<!-- Bootstrap -->
 <link href="/css/cosmo/bootstrap.min.css" rel="stylesheet" media="screen">
-<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/lazysizes/1.3.1/lazysizes.min.js"></script>
-<!-- Latest compiled and minified JavaScript -->
-<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
 <link rel="shortcut icon" href="{{ site.baseurl }}/favicon.ico?v=2">
 </head>
+<script>
+window.onload = () => {
+  document.querySelectorAll('[data-toggle]')[0].addEventListener('click', () => {
+    document.querySelectorAll('.navbar-collapse')[0].classList.toggle('collapse');
+  });
+}
+</script>
 <body>
 <div class="navbar-default">
   <div class="container">
