@@ -19,8 +19,8 @@ shell: Dockerfile.build
 
 PRODUCTION_BUILD_DIR := _build/production/$(shell date +%s)
 deploy: Dockerfile.build
-	docker run \
-		$(RUN_ARGS)
+	@docker run \
+		$(RUN_ARGS) \
 		/bin/bash -c ' \
 		mkdir -p $(PRODUCTION_BUILD_DIR); \
 		cp _config.yml /tmp/_config.yml; \
