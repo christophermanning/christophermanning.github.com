@@ -9,7 +9,7 @@ clean:
 RUN_ARGS=--rm -it --volume "$(PWD):/src" jekyll-docker
 
 serve: Dockerfile.build
-	docker run \
+	@docker run \
 		-p 4000:4000 \
 		$(RUN_ARGS) \
 		bundle exec jekyll serve --host 0.0.0.0 --watch --force_polling
