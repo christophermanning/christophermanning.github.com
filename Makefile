@@ -1,18 +1,21 @@
 build:
 	docker build -t jekyll .
 
+RUN_ARGS=--rm -it --volume "$(PWD):/src" jekyll
+
 serve: build
-	docker run --rm \
+	docker run \
 		-p 4000:4000 \
-		--volume="$(PWD):/src" \
-		-it jekyll \
+		$(RUN_ARGS) \
 		bundle exec jekyll serve --host 0.0.0.0 --watch --force_polling
+
+shell:
+	@docker run $(RUN_ARGS) /bin/sh
 
 PRODUCTION_BUILD_DIR := _build/production/$(shell date +%s)
 deploy: build
-	docker run --rm \
-		--volume="$(PWD):/src" \
-		-it jekyll \
+	docker run \
+		$(RUN_ARGS)
 		/bin/bash -c ' \
 		mkdir -p $(PRODUCTION_BUILD_DIR); \
 		cp _config.yml /tmp/_config.yml; \
