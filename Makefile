@@ -1,19 +1,24 @@
-build:
-	docker build -t jekyll .
+# track the build timestamp in Dockerfile.build so the Dockerfile is rebuilt when dependencies change
+Dockerfile.build: Dockerfile Gemfile Gemfile.lock
+	docker build -t jekyll-docker .
+	touch $@
 
-RUN_ARGS=--rm -it --volume "$(PWD):/src" jekyll
+clean:
+	rm Dockerfile.build
 
-serve: build
+RUN_ARGS=--rm -it --volume "$(PWD):/src" jekyll-docker
+
+serve: Dockerfile.build
 	docker run \
 		-p 4000:4000 \
 		$(RUN_ARGS) \
 		bundle exec jekyll serve --host 0.0.0.0 --watch --force_polling
 
-shell:
+shell: Dockerfile.build
 	@docker run $(RUN_ARGS) /bin/sh
 
 PRODUCTION_BUILD_DIR := _build/production/$(shell date +%s)
-deploy: build
+deploy: Dockerfile.build
 	docker run \
 		$(RUN_ARGS)
 		/bin/bash -c ' \
