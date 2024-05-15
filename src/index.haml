@@ -17,10 +17,10 @@ projects:
       {% endfor %}
     %div
       %h4
-        %a{:href => "{{ post.url }}", :title => "{{ post.title }}", :target => "_blank"} {{ post.title }}
+        %a{:href => "{{ post.redirect_to }}", :title => "{{ post.title }}", :target => "_blank"} {{ post.title }}
       {% if forloop.index == 1 %}
       %p
-        %a.thumbnail{:href => "{{ post.url }}", :target => "_blank"}
+        %a.thumbnail{:href => "{{ post.redirect_to }}", :target => "_blank"}
           %img{:src => "{{post.thumbnail_gif}}"}/
       {% endif %}
     {% endfor %}
