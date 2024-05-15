@@ -14,8 +14,7 @@ layout: page
 
 {{content}}
 
-{% assign sortedPosts = site.categories[page.category] | sort: "sort" %}
-{% for post in sortedPosts %}
+{% for post in site.categories[page.category] %}
   {% unless post.archived %}
     {% cycle '<div class="row">', '', '' %}
     <div class="col-md-4">
