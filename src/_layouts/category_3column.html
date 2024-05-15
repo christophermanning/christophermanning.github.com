@@ -19,11 +19,9 @@ layout: page
     {% cycle '<div class="row">', '', '' %}
     <div class="col-md-4">
       {% assign targetBlank = '' %}
-      {% if post.url contains 'https' %}
-        {% assign targetBlank = 'target="_blank"' %}
-      {% endif%}
       {% assign postUrl = post.url %}
-      {% if post.redirect_to contains 'https' %}
+      {% if post.redirect_to %}
+        {% assign targetBlank = 'target="_blank"' %}
         {% assign postUrl = post.redirect_to %}
       {% endif%}
       <h4><a href="{{ postUrl }}" title="{{ post.title }}" {{targetBlank}}>{{ post.title }}</a></h4>
