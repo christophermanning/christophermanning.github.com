@@ -1,14 +1,16 @@
+NAME=jekyll-docker
+
 # track the build timestamp in Dockerfile.build so the Dockerfile is rebuilt when dependencies change
 Dockerfile.build: Dockerfile Gemfile Gemfile.lock
-	docker build -t jekyll-docker .
+	docker build -t ${NAME} .
 	touch $@
 
 clean:
 	rm Dockerfile.build
 
-RUN_ARGS=--rm -it --volume "$(PWD):/src" jekyll-docker
+RUN_ARGS=--rm -it --volume "$(PWD):/src" ${NAME}
 
-serve: Dockerfile.build
+up: Dockerfile.build
 	@docker run \
 		-p 4000:4000 \
 		$(RUN_ARGS) \
@@ -41,3 +43,13 @@ deploy: Dockerfile.build
 		git remote add origin git@github.com:christophermanning/christophermanning.github.io.git && \
 		git push origin main --force
 
+# run commands with send-keys so the window returns to a shell when the command exits
+dev:
+	-tmux kill-session -t "${NAME}"
+	tmux new-session -s "${NAME}" -d -n vi
+	tmux send-keys -t "${NAME}:vi" "vi" Enter
+	tmux new-window -t "${NAME}" -n shell "/bin/zsh"
+	tmux new-window -t "${NAME}" -n build
+	tmux send-keys -t "${NAME}:build" "make up" Enter
+	tmux select-window -t "${NAME}:vi"
+	tmux attach-session -t "${NAME}"

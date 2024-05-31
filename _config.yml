@@ -3,7 +3,7 @@ description: Christopher Manning lives in Chicago, Illinois where he works as a 
 excerpt_separator: "<!--more-->"
 permalink: /:categories/:title
 source: src
-gems:
+plugins:
   - jekyll-feed
   - jekyll-sitemap
   - jekyll-redirect-from
@@ -14,3 +14,5 @@ navigation:
    url: /projects
  - text: Writing
    url: /writing
+redirect_from:
+  json: false

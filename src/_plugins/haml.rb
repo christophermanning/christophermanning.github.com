@@ -13,7 +13,7 @@ module Jekyll
     end
 
     def convert(content)
-      engine = Haml::Engine.new(content)
+      engine = Haml::Template.new { content }
       engine.render
     rescue StandardError => e
       puts '!!! HAML Error: ' + e.message
