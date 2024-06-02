@@ -17,7 +17,7 @@ up: Dockerfile.build
 		bundle exec jekyll serve --host 0.0.0.0 --watch --force_polling
 
 shell: Dockerfile.build
-	@docker run $(RUN_ARGS) /bin/sh
+	@docker run $(RUN_ARGS) /bin/bash
 
 PRODUCTION_BUILD_DIR := _build/production/$(shell date +%s)
 deploy: Dockerfile.build
