@@ -16,3 +16,5 @@ navigation:
    url: /writing
 redirect_from:
   json: false
+sass:
+  style: compressed
