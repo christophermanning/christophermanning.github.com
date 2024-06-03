@@ -18,3 +18,4 @@ redirect_from:
   json: false
 sass:
   style: compressed
+  sourcemap: never
