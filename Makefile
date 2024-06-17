@@ -1,26 +1,31 @@
 NAME=jekyll-docker
 
-# track the build timestamp in Dockerfile.build so the Dockerfile is rebuilt when dependencies change
+# if the image doesn't exist, delete Dockerfile.build to build the image
+build:
+	@if [ -z "$(shell docker images -q ${NAME})" ]; then make clean; fi
+	@make -s Dockerfile.build
+
+# track the build timestamp in Dockerfile.build and build the image if the listed dependencies are newer than the image
 Dockerfile.build: Dockerfile Gemfile Gemfile.lock
 	docker build -t ${NAME} .
 	touch $@
 
 clean:
-	rm Dockerfile.build
+	rm Dockerfile.build || true
 
 RUN_ARGS=--rm -it --volume "$(PWD):/src" ${NAME}
 
-up: Dockerfile.build
+up: build
 	@docker run \
 		-p 4000:4000 \
 		$(RUN_ARGS) \
 		bundle exec jekyll serve --host 0.0.0.0 --watch --force_polling
 
-shell: Dockerfile.build
+shell: build
 	@docker run $(RUN_ARGS) /bin/bash
 
 PRODUCTION_BUILD_DIR := _build/production/$(shell date +%s)
-deploy: Dockerfile.build
+deploy: build
 	@docker run \
 		$(RUN_ARGS) \
 		/bin/bash -c ' \
