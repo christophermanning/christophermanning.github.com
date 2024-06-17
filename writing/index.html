@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html>
+<head>
+<base href="https://www.christophermanning.org" />
+<title>Writing - Christopher Manning</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="Description" content="Christopher Manning lives in Chicago, Illinois where he works as a software engineer.">
+
+
+	<meta property="og:type" content="article" />
+	<meta property="og:title" content="Writing" />
+
+
+	<meta property="og:url" content="https://www.christophermanning.org/writing//" />
+
+
+	<meta property="og:site_name" content="Christopher Manning" />
+
+
+<link rel="alternate" type="application/rss+xml" title="Christopher Manning" href="https://www.christophermanning.org/feed.xml">
+<link href="/css/main.css" rel="stylesheet" media="screen">
+<link rel="shortcut icon" href="https://www.christophermanning.org/favicon.ico?v=2">
+</head>
+<script>
+window.onload = () => {
+  document.querySelectorAll('[data-toggle]')[0].addEventListener('click', () => {
+    document.querySelectorAll('.navbar-collapse')[0].classList.toggle('collapse');
+  });
+}
+</script>
+<body>
+<div class="navbar-default">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://www.christophermanning.org/">Christopher Manning</a>
+    </div>
+    <div class="navbar-collapse collapse navbar-responsive-collapse">
+      <ul class="nav navbar-nav">
+        
+        
+          
+            <li >
+              <a href="/about" title="">About</a>
+            </li>
+          
+        
+          
+            <li >
+              <a href="/projects" title="">Projects</a>
+            </li>
+          
+        
+          
+            <li class="active">
+              <a href="/writing" title="">Writing</a>
+            </li>
+          
+        
+      </ul>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <h1 class="category">Writing</h1>
+
+
+
+
+  
+  <h2><a href="/writing/answering-how-many-with-software">Answering How Many with Software</a></h2>
+  
+    <p><p><em>How many?</em> is a typical question that comes up when programming. I use a variety of software
+for projects and there are subtly different ways to answer that question depending on the context.</p>
+
+<p>Here is an alphabetical list of ways I’ve recently answered that question.
+A more detailed comparison of programming languages can be found on <a href="https://en.wikipedia.org/wiki/Comparison_of_programming_languages" target="\_blank">Wikipedia</a>.</p>
+
+<h3 id="command-line">Command Line</h3>
+
+<figure class="highlight"><pre><code class="language-shell" data-lang="shell"><span class="c"># How many rows are in this file?</span>
+<span class="nb">wc</span> <span class="nt">-l</span> &lt; file</code></pre></figure>
+
+<h3 id="golang">Golang</h3>
+
+<figure class="highlight"><pre><code class="language-go" data-lang="go"><span class="c">// How many elements are in this array?</span>
+<span class="nb">len</span><span class="p">(</span><span class="n">array</span><span class="p">)</span></code></pre></figure>
+
+<h3 id="javascript">JavaScript</h3>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="c1">// How many elements are in this array?</span>
+<span class="nx">array</span><span class="p">.</span><span class="nx">length</span>
+
+<span class="c1">// How many elements in this array are greater than 5?</span>
+<span class="nx">d3</span><span class="p">.</span><span class="nf">count</span><span class="p">(</span><span class="nx">array</span><span class="p">,</span> <span class="p">(</span><span class="nx">d</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">d</span> <span class="o">&gt;</span> <span class="mi">5</span><span class="p">)</span>
+
+<span class="c1">// How many rows are in this Apache Arrow table?</span>
+<span class="nx">table</span><span class="p">.</span><span class="nx">numRows</span></code></pre></figure>
+
+<h3 id="liquid-tags-in-jekyll">Liquid Tags in Jekyll</h3>
+
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="c">&lt;!-- How many elements are in this array? --&gt;</span>
+array | size</code></pre></figure>
+
+<h3 id="python">Python</h3>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="c1"># How many elements are in this list?
+</span><span class="nf">len</span><span class="p">(</span><span class="nb">list</span><span class="p">)</span>
+
+<span class="c1"># How many elements are in this pandas dataframe?
+</span><span class="n">df</span><span class="p">.</span><span class="n">size</span> <span class="c1"># including missing values
+</span><span class="n">df</span><span class="p">.</span><span class="nf">count</span><span class="p">()</span> <span class="c1"># excluding missing values
+</span>
+<span class="c1"># How many elements are in this numpy array?
+</span><span class="n">ndarray</span><span class="p">.</span><span class="n">size</span></code></pre></figure>
+
+<h3 id="ruby">Ruby</h3>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1"># How many elements are in this array?</span>
+<span class="n">array</span><span class="p">.</span><span class="nf">length</span>
+<span class="n">array</span><span class="p">.</span><span class="nf">count</span>
+<span class="n">array</span><span class="p">.</span><span class="nf">size</span>
+
+<span class="c1"># How many rows are in this Active Record table?</span>
+<span class="n">table</span><span class="p">.</span><span class="nf">count</span></code></pre></figure>
+
+<h3 id="sql">SQL</h3>
+
+<figure class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="c1">-- How many elements are in this PostgreSQL array?</span>
+<span class="n">array_length</span><span class="p">(</span><span class="n">array</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+
+<span class="c1">-- How many elements are in this DuckDB list?</span>
+<span class="n">len</span><span class="p">(</span><span class="n">list</span><span class="p">)</span>
+
+<span class="c1">-- How many rows are in this table?</span>
+<span class="k">select</span> <span class="k">count</span><span class="p">(</span><span class="o">*</span><span class="p">)</span> <span class="k">from</span> <span class="k">table</span></code></pre></figure>
+
+<h3 id="terraform">Terraform</h3>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1"># How many elements are in this list?</span>
+<span class="n">length</span><span class="p">(</span><span class="n">list</span><span class="p">)</span></code></pre></figure>
+
+</p>
+    
+  
+  <div class="clearfix"></div>
+  
+
+  
+  <h2><a href="/writing/make-flickr-shapes-json-parsable">Make Flickr shapes JSON parsable</a></h2>
+  
+    <p><p>
+<strong>Update</strong>: Flickr has released <a href="http://code.flickr.net/2012/10/24/2273/">version 2.0.1</a> so this is no longer necessary. Thanks Flickr :D
+</p>
+    
+      <small><a class="btn btn-primary btn-xs" href="/writing/make-flickr-shapes-json-parsable">read more &raquo;</a></small>
+    
+  
+  <div class="clearfix"></div>
+  
+
+  
+  <h2><a href="/writing/internal-type-juggling-in-php-5-2-vs-php-5-3">Internal Type Juggling in PHP 5.2 vs PHP 5.3</a></h2>
+  
+    <p><p>
+There is an undocumented case where the output of an internal function is different in PHP 5.2 vs PHP 5.3 when you pass it an invalid argument.
+
+</p>
+    
+      <small><a class="btn btn-primary btn-xs" href="/writing/internal-type-juggling-in-php-5-2-vs-php-5-3">read more &raquo;</a></small>
+    
+  
+  <div class="clearfix"></div>
+  
+
+  
+  <h2><a href="/writing/load-bearing-code">Load-bearing Code</a></h2>
+  
+    <p><p>
+The term 'load-bearing code' can be used to refer to software that exhibits the following attributes.
+
+<ul>
+<li>Has no documentation or automated tests</li>
+<li>Written by an ex-developer</li>
+<li>Used by a large portion of the code base</li>
+<li>Supports critical system processes</li>
+</ul>
+
+<blockquote>
+  <p>Jerry, these are load-bearing walls, they're not gonna come down!</p>
+  <small>Cosmo Kramer in the Seinfeld episode <a href="http://en.wikipedia.org/wiki/The_Chicken_Roaster">"The Chicken Roaster"</a></small>
+</blockquote>
+
+<p>
+I have encountered load-bearing code in legacy open source applications, inherited projects, or debugging production software.
+</p>
+    
+  
+  <div class="clearfix"></div>
+  
+
+  
+  <h2><a href="/writing/calculating-different-mii-combinations">Calculating Different Mii Combinations</a></h2>
+  
+    <p><div class="row">
+  <div class="col-md-10">
+    <p>
+    <strong>How many different Mii designs are possible?</strong> I started counting the options, did the math, and here are the results.
+
+    <table class="table table-striped table-hover">
+      <thead>
+    <tr><th></th><th>Attribute</th><th>Options</th></tr>
+    </thead>
+    <tbody>
+    <tr><td>1</td><td>Genders</td><td>2</td></tr>
+    <tr><td>2</td><td>Clothing Colors</td><td>12</td></tr>
+    <tr><td>3</td><td>Heights</td><td>10</td></tr>
+    <tr><td>4</td><td>Weights</td><td>10</td></tr>
+    <tr><td>5</td><td>Face Shapes</td><td>8</td></tr>
+    <tr><td>6</td><td>Makeup Types</td><td>12</td></tr>
+    <tr><td>7</td><td>Skin Colors</td><td>6</td></tr>
+    <tr><td>8</td><td>Hair Styles</td><td>72</td></tr>
+    <tr><td>9</td><td>Hair Parts</td><td>2</td></tr>
+    <tr><td>10</td><td>Hair Colors</td><td>8</td></tr>
+    <tr><td>11</td><td>Eyebrows</td><td>24</td></tr>
+    <tr><td>12</td><td>Eyebrow Colors</td><td>8</td></tr>
+    <tr><td>13</td><td>Eyebrow Vertical Steps</td><td>16</td></tr>
+    <tr><td>14</td><td>Eyebrow Size Steps</td><td>9</td></tr>
+    <tr><td>15</td><td>Eyebrow Rotation Steps</td><td>12</td></tr>
+    <tr><td>16</td><td>Eyebrow Horizontal Steps</td><td>13</td></tr>
+    <tr><td>17</td><td>Eye Types</td><td>42</td></tr>
+    <tr><td>18</td><td>Eye Colors</td><td>6</td></tr>
+    <tr><td>19</td><td>Eye Vertical Steps</td><td>19</td></tr>
+    <tr><td>20</td><td>Eye Size Steps</td><td>8</td></tr>
+    <tr><td>21</td><td>Eye Rotation Steps</td><td>8</td></tr>
+    <tr><td>22</td><td>Eye Horizontal Steps</td><td>13</td></tr>
+    <tr><td>23</td><td>Noses</td><td>12</td></tr>
+    <tr><td>24</td><td>Nose Vertical Steps</td><td>19</td></tr>
+    <tr><td>25</td><td>Nose Sizes</td><td>9</td></tr>
+    <tr><td>26</td><td>Lips</td><td>24</td></tr>
+    <tr><td>27</td><td>Lips Colors</td><td>3</td></tr>
+    <tr><td>28</td><td>Lips Vertical Steps</td><td>19</td></tr>
+    <tr><td>29</td><td>Lips Sizes</td><td>9</td></tr>
+    <tr><td>30</td><td>Glasses</td><td>9</td></tr>
+    <tr><td>31</td><td>Glasses Colors</td><td>6</td></tr>
+    <tr><td>32</td><td>Glasses Vertical Steps</td><td>21</td></tr>
+    <tr><td>33</td><td>Glasses Sizes</td><td>8</td></tr>
+    <tr><td>34</td><td>Mustaches</td><td>4</td></tr>
+    <tr><td>35</td><td>Mustache Colors</td><td>8</td></tr>
+    <tr><td>36</td><td>Mustache Vertical Steps</td><td>17</td></tr>
+    <tr><td>37</td><td>Mustache Sizes</td><td>9</td></tr>
+    <tr><td>38</td><td>Moles</td><td>2</td></tr>
+    <tr><td>39</td><td>Mole Vertical Steps</td><td>31</td></tr>
+    <tr><td>40</td><td>Mole Sizes</td><td>9</td></tr>
+    <tr><td>41</td><td>Mole Horizontal Steps</td><td>17</td></tr>
+    <tr><td>42</td><td>Goatee Types</td><td>4</td></tr>
+    <tr><td>43</td><td>Goatee Colors</td><td>8</td></tr>
+    <tr><td></td><td>Total</td><td>568</td></tr>
+    </tbody>
+    </table>
+
+    <h4>Exceptions</h4>
+    <ul>
+    <li>1 hair style (bald) has no color or part</li>
+    <li>49 hair styles have no part</li>
+    <li>1 eyebrow style(none) has no color, vertical step, size, rotation or horizontal step</li>
+    <li>7 eye types have no color</li>
+    <li>17 lips have no color</li>
+    <li>1 glasses type (none) has no color, vertical step, or size</li>
+    <li>1 mustache type (none) has no color, vertical step, or size</li>
+    <li>1 mole (none) has no vertical step, size, or horizontal step</li>
+    <li>1 goatee type (none) has no color</li>
+    </ul>
+
+    <h4>Combinations</h4>
+
+    To determine the number of distinct <a rel="external" href="http://en.wikipedia.org/wiki/Combination">combinations</a> I used the formula: 568! / (43! * (568-43)!)
+
+    <h4>Result</h4>
+    Using <a href="http://www.wolframalpha.com/input/?i=568!+%2F+%2843!+*+%28568-43%29!%29" rel="external">Wolfram Alpha to solve 568! / (43! * (568-43)!)</a>, we can see that there are 88 vigintillion, 613 novemdecillion, 583 octodecillion, 674 septendecillion, 758 sexdecillion, 947 quindecillion, 813 quattuordecillion, 475 tredecillion, 143 duodecillion, 744 undecillion, 24 decillion, 970 nonillion, 165 octillion, 692 septillion, 788 sextillion, 754 quintillion, 421 quadrillion, 531 trillion, 161 billion, 395 million, 650 thousand and 32 Mii Combinations.
+
+  </div>
+  <div class="col-md-2">
+    <img src="/images/2011/08/mii.jpg" alt="" title="Christopher Manning&#039;s Mii" width="130" height="257" class="pull-right" />
+  </div>
+</div>
+</p>
+    
+  
+  <div class="clearfix"></div>
+  
+
+
+  <div class="clearfix">&nbsp;</div>
+  <footer style="margin: 5em 0;">
+    <div class="row">
+      <div>
+        <ul class="list-unstyled">
+          <li class="pull-right"><a href="#top">Back to top</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+</div>
+</body>
+</html>

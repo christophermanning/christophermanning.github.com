@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="/https://www.christophermanning.org/feed.xml" rel="self" type="application/atom+xml" /><link href="/https://www.christophermanning.org/" rel="alternate" type="text/html" /><updated>2024-06-17T22:01:47+00:00</updated><id>/https://www.christophermanning.org/feed.xml</id><title type="html">Christopher Manning</title><subtitle>Christopher Manning lives in Chicago, Illinois where he works as a software engineer.</subtitle><entry><title type="html">Answering How Many with Software</title><link href="/https://www.christophermanning.org/writing/answering-how-many-with-software" rel="alternate" type="text/html" title="Answering How Many with Software" /><published>2024-05-31T00:00:00+00:00</published><updated>2024-05-31T00:00:00+00:00</updated><id>/https://www.christophermanning.org/writing/answering-how-many-with-software</id><content type="html" xml:base="/https://www.christophermanning.org/writing/answering-how-many-with-software"><![CDATA[<p><em>How many?</em> is a typical question that comes up when programming. I use a variety of software
+for projects and there are subtly different ways to answer that question depending on the context.</p>
+
+<p>Here is an alphabetical list of ways I’ve recently answered that question.
+A more detailed comparison of programming languages can be found on <a href="https://en.wikipedia.org/wiki/Comparison_of_programming_languages" target="\_blank">Wikipedia</a>.</p>
+
+<h3 id="command-line">Command Line</h3>
+
+<figure class="highlight"><pre><code class="language-shell" data-lang="shell"><span class="c"># How many rows are in this file?</span>
+<span class="nb">wc</span> <span class="nt">-l</span> &lt; file</code></pre></figure>
+
+<h3 id="golang">Golang</h3>
+
+<figure class="highlight"><pre><code class="language-go" data-lang="go"><span class="c">// How many elements are in this array?</span>
+<span class="nb">len</span><span class="p">(</span><span class="n">array</span><span class="p">)</span></code></pre></figure>
+
+<h3 id="javascript">JavaScript</h3>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="c1">// How many elements are in this array?</span>
+<span class="nx">array</span><span class="p">.</span><span class="nx">length</span>
+
+<span class="c1">// How many elements in this array are greater than 5?</span>
+<span class="nx">d3</span><span class="p">.</span><span class="nf">count</span><span class="p">(</span><span class="nx">array</span><span class="p">,</span> <span class="p">(</span><span class="nx">d</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">d</span> <span class="o">&gt;</span> <span class="mi">5</span><span class="p">)</span>
+
+<span class="c1">// How many rows are in this Apache Arrow table?</span>
+<span class="nx">table</span><span class="p">.</span><span class="nx">numRows</span></code></pre></figure>
+
+<h3 id="liquid-tags-in-jekyll">Liquid Tags in Jekyll</h3>
+
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="c">&lt;!-- How many elements are in this array? --&gt;</span>
+array | size</code></pre></figure>
+
+<h3 id="python">Python</h3>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="c1"># How many elements are in this list?
+</span><span class="nf">len</span><span class="p">(</span><span class="nb">list</span><span class="p">)</span>
+
+<span class="c1"># How many elements are in this pandas dataframe?
+</span><span class="n">df</span><span class="p">.</span><span class="n">size</span> <span class="c1"># including missing values
+</span><span class="n">df</span><span class="p">.</span><span class="nf">count</span><span class="p">()</span> <span class="c1"># excluding missing values
+</span>
+<span class="c1"># How many elements are in this numpy array?
+</span><span class="n">ndarray</span><span class="p">.</span><span class="n">size</span></code></pre></figure>
+
+<h3 id="ruby">Ruby</h3>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1"># How many elements are in this array?</span>
+<span class="n">array</span><span class="p">.</span><span class="nf">length</span>
+<span class="n">array</span><span class="p">.</span><span class="nf">count</span>
+<span class="n">array</span><span class="p">.</span><span class="nf">size</span>
+
+<span class="c1"># How many rows are in this Active Record table?</span>
+<span class="n">table</span><span class="p">.</span><span class="nf">count</span></code></pre></figure>
+
+<h3 id="sql">SQL</h3>
+
+<figure class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="c1">-- How many elements are in this PostgreSQL array?</span>
+<span class="n">array_length</span><span class="p">(</span><span class="n">array</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+
+<span class="c1">-- How many elements are in this DuckDB list?</span>
+<span class="n">len</span><span class="p">(</span><span class="n">list</span><span class="p">)</span>
+
+<span class="c1">-- How many rows are in this table?</span>
+<span class="k">select</span> <span class="k">count</span><span class="p">(</span><span class="o">*</span><span class="p">)</span> <span class="k">from</span> <span class="k">table</span></code></pre></figure>
+
+<h3 id="terraform">Terraform</h3>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1"># How many elements are in this list?</span>
+<span class="n">length</span><span class="p">(</span><span class="n">list</span><span class="p">)</span></code></pre></figure>]]></content><author><name></name></author><category term="writing" /><summary type="html"><![CDATA[How many? is a typical question that comes up when programming. I use a variety of software for projects and there are subtly different ways to answer that question depending on the context. Here is an alphabetical list of ways I’ve recently answered that question. A more detailed comparison of programming languages can be found on Wikipedia. Command Line # How many rows are in this file? wc -l &lt; file Golang // How many elements are in this array? len(array) JavaScript // How many elements are in this array? array.length // How many elements in this array are greater than 5? d3.count(array, (d) =&gt; d &gt; 5) // How many rows are in this Apache Arrow table? table.numRows Liquid Tags in Jekyll &lt;!-- How many elements are in this array? --&gt; array | size Python # How many elements are in this list? len(list) # How many elements are in this pandas dataframe? df.size # including missing values df.count() # excluding missing values # How many elements are in this numpy array? ndarray.size Ruby # How many elements are in this array? array.length array.count array.size # How many rows are in this Active Record table? table.count SQL -- How many elements are in this PostgreSQL array? array_length(array, 1) -- How many elements are in this DuckDB list? len(list) -- How many rows are in this table? select count(*) from table Terraform # How many elements are in this list? length(list)]]></summary></entry><entry><title type="html">Observable Notebooks</title><link href="/https://www.christophermanning.org/projects/observable-notebooks" rel="alternate" type="text/html" title="Observable Notebooks" /><published>2021-01-01T00:00:00+00:00</published><updated>2021-01-01T00:00:00+00:00</updated><id>/https://www.christophermanning.org/projects/observable-notebooks</id><content type="html" xml:base="/https://www.christophermanning.org/projects/observable-notebooks"><![CDATA[]]></content><author><name></name></author><category term="projects" /><category term="D3.js" /><category term="javascript" /><category term="visualization" /></entry><entry><title type="html">Kaprekar’s Routine</title><link href="/https://www.christophermanning.org/projects/kaprekar-routine" rel="alternate" type="text/html" title="Kaprekar’s Routine" /><published>2013-09-06T00:00:00+00:00</published><updated>2013-09-06T00:00:00+00:00</updated><id>/https://www.christophermanning.org/projects/kaprekar-routine</id><content type="html" xml:base="/https://www.christophermanning.org/projects/kaprekar-routine"><![CDATA[]]></content><author><name></name></author><category term="projects" /><summary type="html"><![CDATA[]]></summary></entry><entry><title type="html">Force-Directed Sierpinski Triangle</title><link href="/https://www.christophermanning.org/projects/force-directed-sierpinski-triangle" rel="alternate" type="text/html" title="Force-Directed Sierpinski Triangle" /><published>2012-12-14T00:00:00+00:00</published><updated>2012-12-14T00:00:00+00:00</updated><id>/https://www.christophermanning.org/projects/force-directed-sierpinski-triangle</id><content type="html" xml:base="/https://www.christophermanning.org/projects/force-directed-sierpinski-triangle"><![CDATA[]]></content><author><name></name></author><category term="projects" /><summary type="html"><![CDATA[]]></summary></entry><entry><title type="html">Building Hamiltonian Graphs from LCF Notation</title><link href="/https://www.christophermanning.org/projects/building-cubic-hamiltonian-graphs-from-lcf-notation" rel="alternate" type="text/html" title="Building Hamiltonian Graphs from LCF Notation" /><published>2012-11-14T00:00:00+00:00</published><updated>2012-11-14T00:00:00+00:00</updated><id>/https://www.christophermanning.org/projects/building-cubic-hamiltonian-graphs-from-lcf-notation</id><content type="html" xml:base="/https://www.christophermanning.org/projects/building-cubic-hamiltonian-graphs-from-lcf-notation"><![CDATA[]]></content><author><name></name></author><category term="projects" /><category term="D3.js" /><category term="visualization" /></entry><entry><title type="html">Voronoi Diagram with Force Directed Nodes and Delaunay Links</title><link href="/https://www.christophermanning.org/projects/voronoi-diagram-with-force-directed-nodes-and-delaunay-links" rel="alternate" type="text/html" title="Voronoi Diagram with Force Directed Nodes and Delaunay Links" /><published>2012-02-06T00:00:00+00:00</published><updated>2012-02-06T00:00:00+00:00</updated><id>/https://www.christophermanning.org/projects/voronoi-diagram-with-force-directed-nodes-and-delaunay-links</id><content type="html" xml:base="/https://www.christophermanning.org/projects/voronoi-diagram-with-force-directed-nodes-and-delaunay-links"><![CDATA[]]></content><author><name></name></author><category term="projects" /><category term="D3.js" /><category term="visualization" /></entry><entry><title type="html">Make Flickr shapes JSON parsable</title><link href="/https://www.christophermanning.org/writing/make-flickr-shapes-json-parsable" rel="alternate" type="text/html" title="Make Flickr shapes JSON parsable" /><published>2011-11-02T00:00:00+00:00</published><updated>2011-11-02T00:00:00+00:00</updated><id>/https://www.christophermanning.org/writing/make-flickr-shapes-json-parsable</id><content type="html" xml:base="/https://www.christophermanning.org/writing/make-flickr-shapes-json-parsable"><![CDATA[<p>
+<strong>Update</strong>: Flickr has released <a href="http://code.flickr.net/2012/10/24/2273/">version 2.0.1</a> so this is no longer necessary. Thanks Flickr :D
+<!--more-->
+<hr>
+
+<p>
+The Flickr shapes available at <a href="http://code.flickr.com/blog/2011/01/08/flickr-shapefiles-public-dataset-2-0/" rel="external">http://code.flickr.com/blog/2011/01/08/flickr-shapefiles-public-dataset-2-0/</a> are not parsable with <code>JSON.parse()</code> because of a trailing comma before a closing curly brace. I was able to narrow the problem down to those trailing commas using the <a href="http://json.parser.online.fr/" rel="external">Json Parser Online</a> tool. Then, I used <a href="http://regexpal.com/" rel="external">RegexPal</a> to create the <code>,(\s+})</code> regular expression to fix the syntax error.
+
+<p>
+I've created a python script that will will download the Flickr shapes archive (if it doesn't already exist in the working directory) and update the files to be JSON parsable. Now, those GeoJSON files can be read by libraries like <a href="http://polymaps.org" rel="external">Polymaps</a>.
+<script src="https://gist.github.com/christophermanning/1334341.js?file=make_flickr_shapes_json_parsable.py"></script>]]></content><author><name></name></author><category term="writing" /><category term="python" /><summary type="html"><![CDATA[Update: Flickr has released version 2.0.1 so this is no longer necessary. Thanks Flickr :D]]></summary></entry><entry><title type="html">Internal Type Juggling in PHP 5.2 vs PHP 5.3</title><link href="/https://www.christophermanning.org/writing/internal-type-juggling-in-php-5-2-vs-php-5-3" rel="alternate" type="text/html" title="Internal Type Juggling in PHP 5.2 vs PHP 5.3" /><published>2011-09-20T00:00:00+00:00</published><updated>2011-09-20T00:00:00+00:00</updated><id>/https://www.christophermanning.org/writing/internal-type-juggling-in-php-5-2-vs-php-5-3</id><content type="html" xml:base="/https://www.christophermanning.org/writing/internal-type-juggling-in-php-5-2-vs-php-5-3"><![CDATA[<p>
+There is an undocumented case where the output of an internal function is different in PHP 5.2 vs PHP 5.3 when you pass it an invalid argument.
+
+<!--more-->
+
+<p>
+For example, strlen returns different values and warnings/notices when attempting to pass it an array.
+
+<h4>PHP 5.2</h4>
+<figure class="highlight"><pre><code class="language-php" data-lang="php"><span class="o">&gt;</span> <span class="nb">var_dump</span><span class="p">(</span><span class="nb">strlen</span><span class="p">(</span><span class="k">array</span><span class="p">()));</span>
+<span class="no">PHP</span> <span class="nc">Notice</span><span class="o">:</span>  <span class="k">Array</span> <span class="n">to</span> <span class="n">string</span> <span class="n">conversion</span> <span class="n">in</span> <span class="n">php</span>  <span class="n">shell</span> <span class="n">code</span> <span class="n">on</span> <span class="n">line</span> <span class="mi">1</span>
+
+<span class="nc">Notice</span><span class="o">:</span> <span class="k">Array</span> <span class="n">to</span> <span class="n">string</span> <span class="n">conversion</span> <span class="n">in</span> <span class="n">php</span>  <span class="n">shell</span> <span class="n">code</span> <span class="n">on</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="nf">int</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span></code></pre></figure>
+<h4>PHP 5.3</h4>
+<figure class="highlight"><pre><code class="language-php" data-lang="php"><span class="o">&gt;</span> <span class="nb">var_dump</span><span class="p">(</span><span class="nb">strlen</span><span class="p">(</span><span class="k">array</span><span class="p">()));</span>
+<span class="no">PHP</span> <span class="nc">Warning</span><span class="o">:</span>  <span class="nb">strlen</span><span class="p">()</span> <span class="n">expects</span> <span class="n">parameter</span> <span class="mi">1</span> <span class="n">to</span> <span class="n">be</span> <span class="n">string</span><span class="p">,</span> <span class="k">array</span> <span class="n">given</span> <span class="n">in</span> <span class="n">php</span>  <span class="n">shell</span> <span class="n">code</span> <span class="n">on</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="no">PHP</span> <span class="nc">Stack</span> <span class="n">trace</span><span class="o">:</span>
+<span class="no">PHP</span>   <span class="mf">1.</span> <span class="p">{</span><span class="n">main</span><span class="p">}()</span> <span class="n">php</span> <span class="n">shell</span> <span class="n">code</span><span class="o">:</span><span class="mi">0</span>
+<span class="no">PHP</span>   <span class="mf">2.</span> <span class="nb">strlen</span><span class="p">()</span> <span class="n">php</span> <span class="n">shell</span> <span class="n">code</span><span class="o">:</span><span class="mi">1</span>
+
+<span class="nc">Warning</span><span class="o">:</span> <span class="nb">strlen</span><span class="p">()</span> <span class="n">expects</span> <span class="n">parameter</span> <span class="mi">1</span> <span class="n">to</span> <span class="n">be</span> <span class="n">string</span><span class="p">,</span> <span class="k">array</span> <span class="n">given</span> <span class="n">in</span> <span class="n">php</span>  <span class="n">shell</span> <span class="n">code</span> <span class="n">on</span> <span class="n">line</span> <span class="mi">1</span>
+
+<span class="nc">Call</span> <span class="nc">Stack</span><span class="o">:</span>
+  <span class="mf">467.9296</span>     <span class="mi">320928</span>   <span class="mf">1.</span> <span class="p">{</span><span class="n">main</span><span class="p">}()</span> <span class="n">php</span>  <span class="n">shell</span> <span class="n">code</span><span class="o">:</span><span class="mi">0</span>
+  <span class="mf">467.9296</span>     <span class="mi">321072</span>   <span class="mf">2.</span> <span class="nb">strlen</span><span class="p">()</span> <span class="n">php</span>  <span class="n">shell</span> <span class="n">code</span><span class="o">:</span><span class="mi">1</span>
+
+<span class="kc">NULL</span></code></pre></figure>
+<p>
+The E_WARNING and return value of NULL in PHP 5.3 is preferred, but I still wanted to know why PHP 5.2 was returning int(5). 
+I tracked down the reason to <a rel="external" href="http://svn.php.net/viewvc?view=revision&revision=261338">this subversion commit</a> and <a rel="external" href="http://svn.php.net/viewvc/php/php-src/branches/PHP_5_3/Zend/zend_builtin_functions.c?r1=261338&r2=261337&pathrev=261338">this patch</a>.
+
+<p>
+<script src="https://gist.github.com/christophermanning/1234032.js?file=PHP%205.3%20strlen.patch"></script>
+
+<p>
+In the above patch, I see that strlen and other functions(method_exists, property_exists, function_exists, strcmp, strncmp, strcasecmp, strncasecmp, defined, is_a_impl) were not using zend_parse_parameters to get the arguments. 
+This was preventing the standard validations and warnings from running for that function. Also, those functions were incorrectly casting the arguments to string with convert_to_string_ex. 
+That is why, in PHP 5.2, strlen() of array() is int(5); because, <a rel="external" href="http://www.php.net/manual/en/language.types.string.php#language.types.string.casting">casting array() to string returns "Array"</a>.
+
+<p>
+Now, in PHP 5.3, those functions will no longer coerce the arguments to strings, will return NULL, and will issue a warning when invalid arguments have been provided. Thanks <a href="http://php100.wordpress.com/" rel="external">stas</a>.]]></content><author><name></name></author><category term="writing" /><category term="php" /><summary type="html"><![CDATA[There is an undocumented case where the output of an internal function is different in PHP 5.2 vs PHP 5.3 when you pass it an invalid argument.]]></summary></entry><entry><title type="html">Load-bearing Code</title><link href="/https://www.christophermanning.org/writing/load-bearing-code" rel="alternate" type="text/html" title="Load-bearing Code" /><published>2010-12-03T00:00:00+00:00</published><updated>2010-12-03T00:00:00+00:00</updated><id>/https://www.christophermanning.org/writing/load-bearing-code</id><content type="html" xml:base="/https://www.christophermanning.org/writing/load-bearing-code"><![CDATA[<p>
+The term 'load-bearing code' can be used to refer to software that exhibits the following attributes.
+
+<ul>
+<li>Has no documentation or automated tests</li>
+<li>Written by an ex-developer</li>
+<li>Used by a large portion of the code base</li>
+<li>Supports critical system processes</li>
+</ul>
+
+<blockquote>
+  <p>Jerry, these are load-bearing walls, they're not gonna come down!</p>
+  <small>Cosmo Kramer in the Seinfeld episode <a href="http://en.wikipedia.org/wiki/The_Chicken_Roaster">"The Chicken Roaster"</a></small>
+</blockquote>
+
+<p>
+I have encountered load-bearing code in legacy open source applications, inherited projects, or debugging production software.]]></content><author><name></name></author><category term="writing" /><summary type="html"><![CDATA[The term 'load-bearing code' can be used to refer to software that exhibits the following attributes. Has no documentation or automated tests Written by an ex-developer Used by a large portion of the code base Supports critical system processes Jerry, these are load-bearing walls, they're not gonna come down! Cosmo Kramer in the Seinfeld episode "The Chicken Roaster" I have encountered load-bearing code in legacy open source applications, inherited projects, or debugging production software.]]></summary></entry><entry><title type="html">Calculating Different Mii Combinations</title><link href="/https://www.christophermanning.org/writing/calculating-different-mii-combinations" rel="alternate" type="text/html" title="Calculating Different Mii Combinations" /><published>2010-03-03T00:00:00+00:00</published><updated>2010-03-03T00:00:00+00:00</updated><id>/https://www.christophermanning.org/writing/calculating-different-mii-combinations</id><content type="html" xml:base="/https://www.christophermanning.org/writing/calculating-different-mii-combinations"><![CDATA[<div class="row">
+  <div class="col-md-10">
+    <p>
+    <strong>How many different Mii designs are possible?</strong> I started counting the options, did the math, and here are the results.
+
+    <table class="table table-striped table-hover">
+      <thead>
+    <tr><th></th><th>Attribute</th><th>Options</th></tr>
+    </thead>
+    <tbody>
+    <tr><td>1</td><td>Genders</td><td>2</td></tr>
+    <tr><td>2</td><td>Clothing Colors</td><td>12</td></tr>
+    <tr><td>3</td><td>Heights</td><td>10</td></tr>
+    <tr><td>4</td><td>Weights</td><td>10</td></tr>
+    <tr><td>5</td><td>Face Shapes</td><td>8</td></tr>
+    <tr><td>6</td><td>Makeup Types</td><td>12</td></tr>
+    <tr><td>7</td><td>Skin Colors</td><td>6</td></tr>
+    <tr><td>8</td><td>Hair Styles</td><td>72</td></tr>
+    <tr><td>9</td><td>Hair Parts</td><td>2</td></tr>
+    <tr><td>10</td><td>Hair Colors</td><td>8</td></tr>
+    <tr><td>11</td><td>Eyebrows</td><td>24</td></tr>
+    <tr><td>12</td><td>Eyebrow Colors</td><td>8</td></tr>
+    <tr><td>13</td><td>Eyebrow Vertical Steps</td><td>16</td></tr>
+    <tr><td>14</td><td>Eyebrow Size Steps</td><td>9</td></tr>
+    <tr><td>15</td><td>Eyebrow Rotation Steps</td><td>12</td></tr>
+    <tr><td>16</td><td>Eyebrow Horizontal Steps</td><td>13</td></tr>
+    <tr><td>17</td><td>Eye Types</td><td>42</td></tr>
+    <tr><td>18</td><td>Eye Colors</td><td>6</td></tr>
+    <tr><td>19</td><td>Eye Vertical Steps</td><td>19</td></tr>
+    <tr><td>20</td><td>Eye Size Steps</td><td>8</td></tr>
+    <tr><td>21</td><td>Eye Rotation Steps</td><td>8</td></tr>
+    <tr><td>22</td><td>Eye Horizontal Steps</td><td>13</td></tr>
+    <tr><td>23</td><td>Noses</td><td>12</td></tr>
+    <tr><td>24</td><td>Nose Vertical Steps</td><td>19</td></tr>
+    <tr><td>25</td><td>Nose Sizes</td><td>9</td></tr>
+    <tr><td>26</td><td>Lips</td><td>24</td></tr>
+    <tr><td>27</td><td>Lips Colors</td><td>3</td></tr>
+    <tr><td>28</td><td>Lips Vertical Steps</td><td>19</td></tr>
+    <tr><td>29</td><td>Lips Sizes</td><td>9</td></tr>
+    <tr><td>30</td><td>Glasses</td><td>9</td></tr>
+    <tr><td>31</td><td>Glasses Colors</td><td>6</td></tr>
+    <tr><td>32</td><td>Glasses Vertical Steps</td><td>21</td></tr>
+    <tr><td>33</td><td>Glasses Sizes</td><td>8</td></tr>
+    <tr><td>34</td><td>Mustaches</td><td>4</td></tr>
+    <tr><td>35</td><td>Mustache Colors</td><td>8</td></tr>
+    <tr><td>36</td><td>Mustache Vertical Steps</td><td>17</td></tr>
+    <tr><td>37</td><td>Mustache Sizes</td><td>9</td></tr>
+    <tr><td>38</td><td>Moles</td><td>2</td></tr>
+    <tr><td>39</td><td>Mole Vertical Steps</td><td>31</td></tr>
+    <tr><td>40</td><td>Mole Sizes</td><td>9</td></tr>
+    <tr><td>41</td><td>Mole Horizontal Steps</td><td>17</td></tr>
+    <tr><td>42</td><td>Goatee Types</td><td>4</td></tr>
+    <tr><td>43</td><td>Goatee Colors</td><td>8</td></tr>
+    <tr><td></td><td>Total</td><td>568</td></tr>
+    </tbody>
+    </table>
+
+    <h4>Exceptions</h4>
+    <ul>
+    <li>1 hair style (bald) has no color or part</li>
+    <li>49 hair styles have no part</li>
+    <li>1 eyebrow style(none) has no color, vertical step, size, rotation or horizontal step</li>
+    <li>7 eye types have no color</li>
+    <li>17 lips have no color</li>
+    <li>1 glasses type (none) has no color, vertical step, or size</li>
+    <li>1 mustache type (none) has no color, vertical step, or size</li>
+    <li>1 mole (none) has no vertical step, size, or horizontal step</li>
+    <li>1 goatee type (none) has no color</li>
+    </ul>
+
+    <h4>Combinations</h4>
+
+    To determine the number of distinct <a rel="external" href="http://en.wikipedia.org/wiki/Combination">combinations</a> I used the formula: 568! / (43! * (568-43)!)
+
+    <h4>Result</h4>
+    Using <a href="http://www.wolframalpha.com/input/?i=568!+%2F+%2843!+*+%28568-43%29!%29" rel="external">Wolfram Alpha to solve 568! / (43! * (568-43)!)</a>, we can see that there are 88 vigintillion, 613 novemdecillion, 583 octodecillion, 674 septendecillion, 758 sexdecillion, 947 quindecillion, 813 quattuordecillion, 475 tredecillion, 143 duodecillion, 744 undecillion, 24 decillion, 970 nonillion, 165 octillion, 692 septillion, 788 sextillion, 754 quintillion, 421 quadrillion, 531 trillion, 161 billion, 395 million, 650 thousand and 32 Mii Combinations.
+
+  </div>
+  <div class="col-md-2">
+    <img src="/images/2011/08/mii.jpg" alt="" title="Christopher Manning&#039;s Mii" width="130" height="257" class="pull-right" />
+  </div>
+</div>]]></content><author><name></name></author><category term="writing" /><summary type="html"><![CDATA[How many different Mii designs are possible? I started counting the options, did the math, and here are the results. AttributeOptions 1Genders2 2Clothing Colors12 3Heights10 4Weights10 5Face Shapes8 6Makeup Types12 7Skin Colors6 8Hair Styles72 9Hair Parts2 10Hair Colors8 11Eyebrows24 12Eyebrow Colors8 13Eyebrow Vertical Steps16 14Eyebrow Size Steps9 15Eyebrow Rotation Steps12 16Eyebrow Horizontal Steps13 17Eye Types42 18Eye Colors6 19Eye Vertical Steps19 20Eye Size Steps8 21Eye Rotation Steps8 22Eye Horizontal Steps13 23Noses12 24Nose Vertical Steps19 25Nose Sizes9 26Lips24 27Lips Colors3 28Lips Vertical Steps19 29Lips Sizes9 30Glasses9 31Glasses Colors6 32Glasses Vertical Steps21 33Glasses Sizes8 34Mustaches4 35Mustache Colors8 36Mustache Vertical Steps17 37Mustache Sizes9 38Moles2 39Mole Vertical Steps31 40Mole Sizes9 41Mole Horizontal Steps17 42Goatee Types4 43Goatee Colors8 Total568 Exceptions 1 hair style (bald) has no color or part 49 hair styles have no part 1 eyebrow style(none) has no color, vertical step, size, rotation or horizontal step 7 eye types have no color 17 lips have no color 1 glasses type (none) has no color, vertical step, or size 1 mustache type (none) has no color, vertical step, or size 1 mole (none) has no vertical step, size, or horizontal step 1 goatee type (none) has no color Combinations To determine the number of distinct combinations I used the formula: 568! / (43! * (568-43)!) Result Using Wolfram Alpha to solve 568! / (43! * (568-43)!), we can see that there are 88 vigintillion, 613 novemdecillion, 583 octodecillion, 674 septendecillion, 758 sexdecillion, 947 quindecillion, 813 quattuordecillion, 475 tredecillion, 143 duodecillion, 744 undecillion, 24 decillion, 970 nonillion, 165 octillion, 692 septillion, 788 sextillion, 754 quintillion, 421 quadrillion, 531 trillion, 161 billion, 395 million, 650 thousand and 32 Mii Combinations.]]></summary></entry></feed>
