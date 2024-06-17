@@ -37,3 +37,17 @@ projects:
       %a{:href => "https://github.com/christophermanning", :target => "_blank"} GitHub
       ·
       %a{:href => "https://www.linkedin.com/in/christophermichaelmanning", :target => "_blank"} LinkedIn
+
+  .col-md-4
+    %h4 Writing
+    {% for post in site.categories.writing %}
+    {% unless post.archived %}
+    %h4
+    %a{:href => "{{ post.url }}", :title => "{{ post.title }}"} {{ post.title }}
+    {% if post.thumbnail %}
+    %a.thumbnail{:href => "{{ post.url }}"}
+    %img{:height => "200", :src => "{{post.thumbnail}}"}/
+    {% endif %}
+    {% endunless %}
+    {% endfor %}
+
