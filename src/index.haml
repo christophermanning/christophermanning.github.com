@@ -5,9 +5,8 @@ projects:
 - /projects/voronoi-diagram-with-force-directed-nodes-and-delaunay-links
 - /projects/kaprekar-routine
 ---
-.row
+.row{style: "margin-top:20px"}
   .col-md-8
-    %h3 Projects
     {% for project_id in page.projects %}
       {% comment %} Wacky way of looking up a post by id {% endcomment %}
       {% for post_finder in site.categories.projects %}
@@ -27,15 +26,14 @@ projects:
     %small
       %a.btn.btn-primary.btn-xs{:href => "/projects"} more &raquo;
 
-  .col-md-4
-    %h3 Writing
-    {% for post in site.categories.writing %}
-    {% unless post.archived %}
-    %h4
-      %a{:href => "{{ post.url }}", :title => "{{ post.title }}"} {{ post.title }}
-    {% if post.thumbnail %}
-    %a.thumbnail{:href => "{{ post.url }}"}
-      %img{:height => "200", :src => "{{post.thumbnail}}"}/
-    {% endif %}
-    {% endunless %}
-    {% endfor %}
+  .col-md-4{style: "margin-top:35px"}
+    %p
+      Christopher Manning lives in Chicago, Illinois where he works as a software engineer.
+      In his free time, he enjoys public speaking, experimenting with new technologies, making music, and creating art.
+
+    %p
+      %a{:href => "https://observablehq.com/@christophermanning", :target => "_blank"} Observable
+      ·
+      %a{:href => "https://github.com/christophermanning", :target => "_blank"} GitHub
+      ·
+      %a{:href => "https://www.linkedin.com/in/christophermichaelmanning", :target => "_blank"} LinkedIn
